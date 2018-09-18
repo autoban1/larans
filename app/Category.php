@@ -15,7 +15,10 @@ class Category extends Model
         ] ;
 
 
+    public function car(){
 
+        return $this->belongsToMany(Car::class);
+    }
 
 
 

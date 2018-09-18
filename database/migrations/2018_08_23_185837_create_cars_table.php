@@ -18,18 +18,13 @@ class CreateCarsTable extends Migration
             $table->string('model');
             $table->string('brand');
             $table->string('year');
-            $table->text('kratak_opis');
-            $table->string('boja');
-            $table->integer('seats');
+//            $table->text('short_description');
+//            $table->string('color');
+//            $table->integer('seats');
             $table->decimal('price1h', 5,2);
-            $table->decimal('price2h', 5,2);
-            $table->decimal('price3h', 5,2);
             $table->decimal('price1hcost', 5,2);
-            $table->decimal('price2hcost', 5,2);
-            $table->decimal('price3hcost', 5,2);
-            $table->integer('user_id');
-            $table->string('slug')->unique()->index();
-            $table->text('dugi_opis');
+            $table->integer('owner_user_id');
+            $table->text('long_description');
             $table->timestamps();
         });
     }
