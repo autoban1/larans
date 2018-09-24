@@ -10,6 +10,7 @@
                     <div class="card-body">
 
                         <proba></proba>
+                        <proba2></proba2>
 
                     </div>
                 </div>

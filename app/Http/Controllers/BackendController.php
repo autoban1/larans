@@ -20,6 +20,14 @@ class BackendController extends Controller
     }
 
 
+    public function cars_index_filter()
+    {
+        $cars = Car::whereId();
+
+        return view('backend.cars_index', compact('cars'));
+    }
+
+
 
     public function cars_show($id)
 
@@ -27,7 +35,7 @@ class BackendController extends Controller
     {
 //        $categories = Category::all();
 
-        $car = Car::whereId($id)->first();
+        $car = Car::find($id);
 
         return view('backend.cars_show', compact('car'));
     }
@@ -54,7 +62,7 @@ class BackendController extends Controller
         if($request->category_id)
         {
 
-            $car->category()->sync($request->category_id);
+            $car->categories()->sync($request->category_id);
 
         }
 
@@ -78,7 +86,19 @@ class BackendController extends Controller
 
         $car = Car::findOrFail($id);
 
-        return view('backend.cars_edit', compact('car'));
+        $categories = Category::all();
+
+        $cc = array();
+
+        foreach ($car->categories as $c){
+
+            $cc[] = $c->id-1;
+
+        };
+
+        $filtered = array_except($categories, $cc);
+
+        return view('backend.cars_edit', compact('car','categories', 'filtered'));
 
 
     }
@@ -90,6 +110,10 @@ class BackendController extends Controller
 
         $car->update($request->all());
 
+        if($request->category_id)
+        {
+            $car->categories()->sync($request->category_id);
+        }
 
         return redirect('cars/index');
     }

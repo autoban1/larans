@@ -62,6 +62,44 @@
                             {!! Form::textarea('long_description', null, ['class'=>'form-control']) !!}
                         </div>
 
+
+                        <div class="form-group">
+                            {!! Form::label('kategorije', 'Kategorije:') !!}
+                        </div>
+
+                        <div class="form-group">
+                        {{--zazuzete kategorije--}}
+                           {{ $car->categories->count() ? "zauzete kategorije" : "" }}<br>
+                            @foreach($car->categories as $category)
+
+
+                                {!! Form::checkbox('category_id[]', $category->id, true ,['class'=>'form-check-input']) !!}
+                                {!! Form::label('category', $category->name) !!}
+                                <br>
+
+                            @endforeach
+                            <p> slobodne kategorije </p>
+                            @foreach($filtered as $category)
+
+
+                                {!! Form::checkbox('category_id[]', $category->id, false ,['class'=>'form-check-input']) !!}
+                                {!! Form::label('category', $category->name) !!}
+                                <br>
+
+                            @endforeach
+
+                            {{--slobodne kategorije--}}
+
+
+
+
+
+                        </div>
+
+
+
+
+
                         <div class="form-group">
 
                             {!! Form::submit('Ubaci Vozilo', ['class'=>'btn btn-primary']) !!}

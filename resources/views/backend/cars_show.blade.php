@@ -47,9 +47,11 @@
 
                         <p>Kategorija Vozila:<br>
 
-                            @foreach ($car->categories as $category)
+                            {{--{{ json_encode($car) }}--}}
 
-                            {{$category->name}}<br>
+                            @foreach($car->categories as $category)
+
+                                <a href="{{route('categories.show', $category->id)}}">{{$category->name}}</a><br>
 
                             @endforeach
                         </p>

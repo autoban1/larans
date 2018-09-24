@@ -58,7 +58,7 @@
                 </li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-truck"></i><span class="hide-menu">Cars </span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="#">Cars List</a></li>
+                        <li><a href="{{ route('cars.index') }}">Cars List</a></li>
                         <li><a href="{{ route('categories.index') }}">Car Categories </a></li>
                         <li><a href="{{ route('cartags.index') }}">Car Tags</a></li>
 

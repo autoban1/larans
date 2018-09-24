@@ -17,9 +17,9 @@ class Car extends Model
     ] ;
 
 
-   public function category(){
+   public function categories(){
 
-       return $this->belongsToMany(Category::class);
+       return $this->belongsToMany('App\Category')->withTimestamps();
    }
 
 

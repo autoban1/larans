@@ -15,9 +15,9 @@ class Category extends Model
         ] ;
 
 
-    public function car(){
+    public function cars(){
 
-        return $this->belongsToMany(Car::class);
+        return $this->belongsToMany('App\Car')->withTimestamps();
     }
 
 

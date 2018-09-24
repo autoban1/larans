@@ -38,6 +38,21 @@
 
 
 
+                    <div>
+
+                        Vozila u kategoriji:<br>
+
+                        @foreach($category->cars as $car)
+
+                            <a href="{{route('cars.show', $car->id)}}">{{$car->model}}</a> <br>
+
+
+                            @endforeach
+
+
+                    </div>
+
+
                 </div>
             </div>
         </div>

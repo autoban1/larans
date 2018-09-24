@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCarCategoryTable extends Migration
+class CreateCarsCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,8 @@ class CreateCarCategoryTable extends Migration
     {
         Schema::create('car_category', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_id');
             $table->integer('car_id');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }
